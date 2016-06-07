@@ -35,9 +35,9 @@ public class Library {
              ) {
             if(book.getName().equals(name) && book.isAvailable()){
                 book.setAvailable(false);
-                return "Thank you!Enjoy the book";
+                return "Thank you!Enjoy the book!";
             }else{
-                return "That book is not available";
+                return "That book is not available!";
             }
         }
         return "";
