@@ -14,10 +14,10 @@ public class Books {
     public Books() {
     }
 
-    public Books(String name, String artuor, String publishers, float price ,boolean available) {
+    public Books(String name, String artuor, String publishedYear, float price ,boolean available) {
         this.name = name;
         this.artuor = artuor;
-        this.publishedYear = publishers;
+        this.publishedYear = publishedYear;
         this.price = price;
         this.available = available;
     }
@@ -67,7 +67,7 @@ public class Books {
                 "name='" + name + '\'' +
                 ", artuor='" + artuor + '\'' +
                 ", publishers='" + publishedYear + '\'' +
-                ", price=" + price +
+                ", price=" + price + 
                 '}';
     }
 }

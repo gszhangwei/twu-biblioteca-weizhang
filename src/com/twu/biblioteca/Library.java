@@ -15,19 +15,16 @@ public class Library {
     public Library() {
     }
 
-//    public ArrayList<Books> getBookList() {
-//        return BookList;
-//    }
-//
-//    public void setBookList(ArrayList<Books> bookList) {
-//        BookList = bookList;
-//    }
+    public void addBook(String name, String artuor, String publishedYear, float price ,boolean available){
+        BookList.add(new Books(name,artuor,publishedYear,price,available));
+    }
+
 
     public void showBookList(){
         for (Books book:BookList
              ) {
             if(book.isAvailable()) {
-                System.out.print(book.getBookInformation());
+                System.out.println(book.getBookInformation());
             }
         }
     }
