@@ -14,9 +14,11 @@ public class LibraryTest {
     @Before
     public void setUp() throws Exception {
         library = new Library();
-        library.addBook("TW0", "arthur0", "20100203", 70, true);
-        library.addBook("TW1", "arthur1", "20110205", 80, true);
-        library.addBook("TW2", "arthur2", "20120206", 450, true);
+        library.addEntity("TW0", "arthur0", "20100203",  true);
+        library.addEntity("TW1", "arthur1", "20110205",  true);
+        library.addEntity("TW2", "arthur2", "20120206",  true);
+        library.addEntity("movie0","arthur5","20160621",5,true);
+        library.addUserAccount("zhangsan","12586624@qq.com","13415896225","111-3333","1234567");
     }
 
 
@@ -41,4 +43,48 @@ public class LibraryTest {
         library.checkoutBookByName("TW0");
         assertEquals("That is not a valid book to return!",library.returnBookByName("TW1"));
     }
+
+    @Test
+    public void should_the_movie_check_out_by_name_IS_right() throws Exception{
+        assertEquals("Thank you!Enjoy the movie!",library.checkoutMovieByName("movie0"));
+    }
+
+    @Test
+    public void should_the_movie_check_out_by_name_NOT_right() throws Exception{
+        assertEquals("That movie is not available!",library.checkoutMovieByName("123456"));
+    }
+
+    @Test
+    public void should_the_MOVIE_return_IS_right() throws Exception {
+        library.checkoutMovieByName("movie0");
+        assertEquals("Thank you for returning the movie!",library.returnMovieByName("movie0"));
+    }
+
+    @Test
+    public void should_the_MOVIE_return_NOT_right() throws Exception {
+        library.checkoutMovieByName("movie0");
+        assertEquals("That is not a valid movie to return!",library.returnMovieByName("movie123"));
+    }
+
+    @Test
+    public void should_the_user_Login_Successful_by_right_password_and_right_librarynumber() throws Exception{
+        assertEquals(true,library.Login("111-3333","1234567"));
+    }
+
+    @Test
+    public void should_the_user_Login_Unsuccessful_by_right_password_and_wrong_librarynumber() throws Exception{
+        assertEquals(false,library.Login("111-2222","1234567"));
+    }
+
+    @Test
+    public void should_the_user_Login_Unsuccessful_by_wrong_password_and_right_librarynumber() throws Exception{
+        assertEquals(false,library.Login("111-3333","1112222"));
+    }
+
+    @Test
+    public void should_the_user_Login_Unsuccessful_by_wrong_password_and_wrong_librarynumber() throws Exception{
+        assertEquals(false,library.Login("111-2333","2222222"));
+    }
+
+
 }

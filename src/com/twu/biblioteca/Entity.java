@@ -3,22 +3,32 @@ package com.twu.biblioteca;
 /**
  * Created by Arthur.w on 2016/6/6.
  */
-public class Books {
+public class Entity {
     private String name;
     private String artuor;
     private String publishedYear;
+    private String year;
+    private String director;
+    private int movierating;
     private double price;
     private boolean available;
 
 
-    public Books() {
+    public Entity() {
     }
 
-    public Books(String name, String artuor, String publishedYear, float price ,boolean available) {
+    public Entity(String name, String artuor, String publishedYear , boolean available) {
         this.name = name;
         this.artuor = artuor;
         this.publishedYear = publishedYear;
-        this.price = price;
+        this.available = available;
+    }
+
+    public Entity(String name, String director, String year, int movierating, boolean available) {
+        this.name = name;
+        this.director = director;
+        this.year = year;
+        this.movierating = movierating;
         this.available = available;
     }
 
@@ -63,11 +73,19 @@ public class Books {
     }
 
     public String getBookInformation() {
-        return "Books{" +
+        return "Book{" +
                 "name='" + name + '\'' +
                 ", artuor='" + artuor + '\'' +
-                ", publishers='" + publishedYear + '\'' +
-                ", price=" + price + 
+                ", publishers='" + publishedYear  +
+                '}';
+    }
+
+    public String getMovieInformation() {
+        return "Movie{" +
+                "name='" + name + '\'' +
+                ", director='" + director + '\'' +
+                ", year='" + year + '\'' +
+                ", movierating=" + movierating +
                 '}';
     }
 }
